@@ -13,3 +13,7 @@ The userscript retrieves the proper user icons from the user profile.
 ### Prerequisits
 * In the userscript replace the placeholder in the @match metadata!
 * In the userscript fill in the associative array called names (all developers with realnames and usernames). The realnames are found at the commits, but images have to be queried by username. Therefore this association has to be added manually with this array.
+## Bitbucket_BranchCounter
+Bitbucket does not show the total number of branches. This script adds this detail, both in the heading of a project's branches page as well as next to the respective nav icon.
+### Prerequisits
+* In the userscript replace the placeholder in the @match metadata!

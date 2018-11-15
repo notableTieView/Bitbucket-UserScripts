@@ -24,7 +24,13 @@ function addTodoButton() {
         button.addEventListener("click", function(){
             toggleButton(button)
         });
-        let list=document.getElementById("pull-requests-content").getElementsByClassName("filter-bar").item(0).children.item(1);
+        let list=document
+        .getElementById("pull-requests-content")
+        .getElementsByClassName("filter-bar")
+        .item(0)
+        .children
+        .item(1);
+
         list.appendChild(button);
 
         // add observer that resets button when other filters are selected
@@ -93,12 +99,19 @@ function toggleButton(button) {
 
 
 function restrictToTodos(todos, ids) {
-    let pullRequestTableBody=document.getElementById("pull-requests-content").getElementsByTagName("tbody").item(0);
+    let pullRequestTableBody=document
+    .getElementById("pull-requests-content")
+    .getElementsByTagName("tbody")
+    .item(0);
+
     if (pullRequestTableBody!=undefined) {
         for (var i=0; i<pullRequestTableBody.children.length; i++) {
             let child=pullRequestTableBody.children[i];
             if (todos) {
-                let prId=child.getElementsByClassName("summary").item(0).getAttribute("data-pull-request-id")
+                let prId=child
+                .getElementsByClassName("summary")
+                .item(0)
+                .getAttribute("data-pull-request-id");
                 if (!ids.includes(prId)) {
                     child.setAttribute("style", "display: none;");
                 }
@@ -111,5 +124,8 @@ function restrictToTodos(todos, ids) {
 
 
 function extractUsername() {
-    return document.getElementById("current-user").getAttribute("data-username")
+    return document
+        .getElementById("current-user")
+        .getAttribute("data-username")
 }
+

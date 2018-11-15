@@ -2,7 +2,7 @@
 // @name         Bitbucket PullRequest TODOs
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
+// @description  find the pull requests you still have to do!
 // @author       notableTieView
 // @match        <URL TO YOUR BITBUCKET INSTALLATION>/projects/*/repos/*/pull-requests*
 // @grant        none

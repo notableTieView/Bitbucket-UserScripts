@@ -8,6 +8,19 @@
 // @grant        none
 // ==/UserScript==
 
+
+'use strict';
+let names = {
+    "real name (as in commits)" : "username",
+    "Jean-Luc Picard" : "jpicard",
+};
+
+let normalizedNames={};
+for (var key in names) {
+    normalizedNames[key.normalize()]=names[key];
+}
+
+
 window.addEventListener("load", function() {
     tamperWithPage();
     let observer = new MutationObserver(tamperWithPage);
@@ -23,12 +36,6 @@ function tamperWithPage() {
 
 function getAvatars() {
 
-    'use strict';
-    let names = {
-        "real name (as in commits)" : "username",
-        "Jean-Luc Picard" : "jpicard",
-    };
-
     let a=document.getElementsByClassName("aui-avatar aui-avatar-small user-avatar");
     (Array.from(a)).forEach(function(item){
 
@@ -37,8 +44,8 @@ function getAvatars() {
         .getElementsByTagName("img")
         .item(0);
 
-        let name=b.getAttribute("alt");
-        if (names[name]) {
+        let name=b.getAttribute("alt").normalize();
+        if (normalizedNames[name]) {
             b.setAttribute("src", window.location.protocol + "//" + window.location.host + "/users/"+names[name]+"/avatar.png")
         }
 
